@@ -1,0 +1,39 @@
+<br />
+
+<div class="alert alert-danger" role="alert" *ngIf="possuiErro">
+	Erro obtendo dados. Tente novamente.
+</div>
+<div class="card">
+	<div class="panel panel-info text-center" style="width: 400px;">
+		<div class="panel-heading">
+			Digite a temperatura a ser convertida 
+		</div>
+		<div class="panel-body">
+			<form #conversaoForm="ngForm" class="form">
+				<input type="text" name="valor" class="form-control text-right" placeholder="0" [(ngModel)]="conversao.resultado"  required numero>
+				<select name="unidadeDe" class="form-control mt-3" [(ngModel)]="conversao.unidadeDe" required>
+					<option *ngFor="let medida of medidas" [value]="medida.sigla">
+						{{medida.sigla}} - {{medida.descricao}}
+					</option>
+				</select>
+				<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+				<select name="unidadePara" class="form-control" [(ngModel)]="conversao.unidadePara" required>
+					<option *ngFor="let medida of medidas" [value]="medida.sigla">
+						{{medida.sigla}} - {{medida.descricao}}
+					</option>
+				</select>
+				<input type="submit" value="Converter" class="btn btn-info btn-lg btn-block" data-toggle="modal"
+					data-target="#modalTemperatura" [disabled]="!conversaoForm.form.valid">
+			</form>
+
+			<modal-conversao 
+			[id]="'modalTemperatura'"
+			[conversaoResponse]="conversaoResponse"
+			[conversao]="conversao"
+			(onConfirm)="init()">
+			</modal-conversao>
+
+
+		</div>
+	</div>
+</div>

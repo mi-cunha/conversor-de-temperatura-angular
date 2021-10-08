@@ -1,0 +1,22 @@
+.card{
+    display: flex;
+    justify-content: center;
+}
+.panel-heading{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+}
+.panel-body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+.form-control{
+    margin-top: 10px;
+}
+.glyphicon{
+    margin-top: 10px;
+}
+.btn{
+    margin-top: 15px;
+}
